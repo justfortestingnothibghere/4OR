@@ -151,7 +151,7 @@ def reviews():
 
 @app.route('/terms')
 def terms():
-    return render_template('term.html')
+    return render_template('terms.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
