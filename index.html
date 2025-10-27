@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEAM 4OR - Precision | Polishing | Perfection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <video autoplay muted loop class="hero-video">
+            <source src="{{ url_for('static', filename='videos/carwash.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay">
+            <h1 class="display-4">TEAM 4OR</h1>
+            <p class="lead">4OR | Precision | Polishing | Perfection</p>
+            <p>Powered by: YellowWheelz</p>
+            <div class="mt-4">
+                <a href="{{ url_for('booking') }}" class="btn btn-primary btn-lg m-2">Book Now</a>
+                <a href="{{ url_for('reviews') }}" class="btn btn-outline-light btn-lg m-2">Reviews</a>
+                <a href="{{ url_for('track') }}" class="btn btn-outline-light btn-lg m-2">Track</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg m-2">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
