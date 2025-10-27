@@ -260,6 +260,12 @@ def promotions():
 def faq():
     return render_template('faq.html')
 
+@app.route('/home')
+def home():
+    return render_template('index.html')
+    
+
+
 @app.route('/terms')
 def terms():
     return render_template('terms.html')
