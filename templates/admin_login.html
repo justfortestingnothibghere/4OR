@@ -9,31 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('home') }}">TEAM 4OR</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('services') }}">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('booking') }}">Book Now</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('track') }}">Track</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('reviews') }}">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('calculator') }}">Calculator</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('promotions') }}">Promotions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('faq') }}">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('loyalty') }}">Loyalty</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Admin Login</h2>
+        <h2 class="text-center mb-4"><i class="fas fa-user-shield me-2"></i>Admin Login</h2>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -48,17 +25,17 @@
             <div class="col-md-6">
                 <div class="card text-white bg-dark">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="fas fa-lock me-2"></i>Admin Login</h5>
-                        <form method="POST" action="{{ url_for('admin_login') }}">
+                        <h5 class="card-title"><i class="fas fa-sign-in-alt me-2"></i>Admin Access</h5>
+                        <form method="POST">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt me-2"></i>Login</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt me-2"></i>Log In</button>
                         </form>
                     </div>
                 </div>
@@ -82,6 +59,7 @@
                         <li><a href="{{ url_for('promotions') }}" class="text-white">Promotions</a></li>
                         <li><a href="{{ url_for('faq') }}" class="text-white">FAQ</a></li>
                         <li><a href="{{ url_for('loyalty') }}" class="text-white">Loyalty</a></li>
+                        <li><a href="{{ url_for('gallery') }}" class="text-white">Gallery</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
