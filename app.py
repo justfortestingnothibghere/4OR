@@ -113,6 +113,46 @@ def track():
     return render_template('track.html')
     
 
+# -------------------------
+# Extra Routes for all HTML pages
+# -------------------------
+
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
+
+@app.route('/calculator')
+def calculator():
+    return render_template('calculator.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+
+@app.route('/gallery')
+def gallery_page():  # renamed to avoid duplicate name
+    return render_template('gallery.html')
+
+@app.route('/loyalty')
+def loyalty():
+    return render_template('loyalty.html')
+
+@app.route('/promotions')
+def promotions():
+    return render_template('promotions.html')
+
+@app.route('/reviews')
+def reviews():
+    return render_template('reviews.html')
+
+@app.route('/term')
+def term():
+    return render_template('term.html')
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
