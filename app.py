@@ -23,7 +23,7 @@ login_manager.login_view = 'admin_login'
 DB_PATH = 'database/data.db'
 
 # SendGrid API key (set in Render.com environment variables)
-SENDGRID_API_KEY = os.getenv('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')
+SENDGRID_API_KEY = os.getenv('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')
 
 # User class for Flask-Login
 class User(UserMixin):
