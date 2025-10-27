@@ -108,6 +108,11 @@ def home():
 def services():
     return render_template('services.html')
 
+@app.route('/track')
+def services():
+    return render_template('track.html')
+    
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
