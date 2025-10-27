@@ -47,7 +47,7 @@ def send_booking_email(name, phone, email, car_model, service_type, date, time, 
     # User email (if provided)
     if email:
         message = Mail(
-            from_email='armanhacker900@@gmail.com',
+            from_email='team4orhyd@gmail.com',
             to_emails=email,
             subject=f'Booking Confirmation - TEAM 4OR (ID: {booking_id})',
             html_content=f'''
@@ -74,8 +74,8 @@ def send_booking_email(name, phone, email, car_model, service_type, date, time, 
 
     # Admin email
     admin_message = Mail(
-        from_email='armanhacker900@gmail.com',
-        to_emails='khusi9999khan@gmail.com',  # Replace with your actual admin email
+        from_email='team4orhyd@gmail.com',
+        to_emails='team4orhyd@gmail.com',  # Replace with your actual admin email
         subject=f'New Booking Received - ID: {booking_id}',
         html_content=f'''
             <h2>New Booking Details</h2>
@@ -359,8 +359,15 @@ def delete_review(review_id):
 # def pay(booking_id):
 #     import razorpay
 #     client = razorpay.Client(auth=("YOUR_KEY_ID", "YOUR_KEY_SECRET"))
-#     # Create order and redirect to payment page
-#     pass
+#     conn = get_db_connection()
+#     c = conn.cursor()
+#     c.execute('SELECT * FROM bookings WHERE id = ?', (booking_id,))
+#     booking = c.fetchone()
+#     amount = int(booking['price'] - booking['discount']) * 100  # Convert to paise
+#     data = {'amount': amount, 'currency': 'INR', 'receipt': f'booking_{booking_id}'}
+#     order = client.order.create(data=data)
+#     conn.close()
+#     return render_template('payment.html', order=order, booking_id=booking_id)
 
 if __name__ == '__main__':
     app.run(debug=True)
