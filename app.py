@@ -47,7 +47,7 @@ def send_booking_email(name, phone, email, car_model, service_type, date, time, 
     # User email (if provided)
     if email:
         message = Mail(
-            from_email='team4orhyd@gmail.com',
+            from_email='armanhacker900@gmail.com',
             to_emails=email,
             subject=f'Booking Confirmation - TEAM 4OR (ID: {booking_id})',
             html_content=f'''
@@ -74,8 +74,8 @@ def send_booking_email(name, phone, email, car_model, service_type, date, time, 
 
     # Admin email
     admin_message = Mail(
-        from_email='team4orhyd@gmail.com',
-        to_emails='team4orhyd@gmail.com',  # Replace with your actual admin email
+        from_email='armanhacker900d@gmail.com',
+        to_emails='khusi9999khan@gmail.com',  # Replace with your actual admin email
         subject=f'New Booking Received - ID: {booking_id}',
         html_content=f'''
             <h2>New Booking Details</h2>
@@ -103,6 +103,10 @@ def send_booking_email(name, phone, email, car_model, service_type, date, time, 
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/services')
+def services():
+    return render_template('services.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
