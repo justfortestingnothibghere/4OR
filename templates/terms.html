@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - TEAM 4OR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">TEAM 4OR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('booking') }}">Book Now</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('track') }}">Track</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('calculator') }}">Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('promotions') }}">Promotions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('faq') }}">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('loyalty') }}">Loyalty</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4"><i class="fas fa-file-contract me-2"></i>Terms & Conditions</h2>
+        <div class="card text-white bg-dark">
+            <div class="card-body">
+                <h5 class="card-title">General Terms</h5>
+                <p>By using TEAM 4OR services, you agree to the following terms and conditions:</p>
+                <ul>
+                    <li>All bookings are subject to availability and must be made through our website.</li>
+                    <li>Services are available only at Hyderabad Kukatpally Nexus Mall, KPHB Phase 9.</li>
+                    <li>Payments must be completed at the time of service. Prices are as listed in the Fee Calculator.</li>
+                    <li>TEAM 4OR is not responsible for any damage to vehicles not disclosed prior to service.</li>
+                    <li>Cancellations must be made at least 24 hours in advance, or a cancellation fee may apply.</li>
+                </ul>
+
+                <h5 class="card-title mt-4">Promotional Offers</h5>
+                <ul>
+                    <li>Promo codes offer ₹10–₹50 off and are valid for 3 days from the date of generation.</li>
+                    <li>Promo codes are applicable only at Hyderabad Kukatpally Nexus Mall.</li>
+                    <li>Only one promo code can be used per booking.</li>
+                    <li>Promo codes cannot be combined with other offers or discounts.</li>
+                    <li>TEAM 4OR reserves the right to modify or cancel promotional offers at any time.</li>
+                </ul>
+
+                <h5 class="card-title mt-4">Loyalty Program</h5>
+                <ul>
+                    <li>Earn 1 point per booking, tracked via your phone number.</li>
+                    <li>Points are non-transferable and have no cash value.</li>
+                    <li>TEAM 4OR may modify or terminate the loyalty program at any time.</li>
+                </ul>
+
+                <h5 class="card-title mt-4">Contact</h5>
+                <p>For any questions, please contact us at <a href="mailto:team4orhyd@gmail.com" class="text-white">team4orhyd@gmail.com</a> or +91 9876543210.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>TEAM 4OR</h5>
+                    <p>4OR | Precision | Polishing | Perfection<br>Powered by: YellowWheelz</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('home') }}" class="text-white">Home</a></li>
+                        <li><a href="{{ url_for('services') }}" class="text-white">Services</a></li>
+                        <li><a href="{{ url_for('booking') }}" class="text-white">Book Now</a></li>
+                        <li><a href="{{ url_for('promotions') }}" class="text-white">Promotions</a></li>
+                        <li><a href="{{ url_for('faq') }}" class="text-white">FAQ</a></li>
+                        <li><a href="{{ url_for('loyalty') }}" class="text-white">Loyalty</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-envelope me-2"></i><a href="mailto:team4orhyd@gmail.com" class="text-white">team4orhyd@gmail.com</a><br>
+                       <i class="fas fa-phone me-2"></i>+91 9876543210<br>
+                       <i class="fas fa-map-marker-alt me-2"></i>Kukatpally Nexus Mall, Hyderabad</p>
+                    <p>
+                        <a href="https://instagram.com/team4or" target="_blank" class="text-white me-2"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="https://twitter.com/team4or" target="_blank" class="text-white"><i class="fab fa-twitter fa-2x"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p>&copy; 2025 TEAM 4OR. All Rights Reserved. <a href="{{ url_for('terms') }}" class="text-white">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
