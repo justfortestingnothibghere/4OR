@@ -204,6 +204,11 @@ def reviews():
 def contact():
     return render_template('contact.html')
 
+@app.route('/services')
+def services():
+    return render_template('services.html')
+    
+
 @app.route('/calculator', methods=['GET', 'POST'])
 def calculator():
     fee = None
