@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - TEAM 4OR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">TEAM 4OR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ url_for('services') }}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('booking') }}">Book Now</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('track') }}">Track</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('reviews') }}">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Normal Car Wash</h5>
+                        <p class="card-text">₹600/₹700/₹800 (Small/Medium/Large)</p>
+                        <p class="card-text">Duration: 40–60 min</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Body Wash</h5>
+                        <p class="card-text">₹500/₹600/₹700 (Small/Medium/Large)</p>
+                        <p class="card-text">Duration: 20–30 min</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Wax</h5>
+                        <p class="card-text">Price: Depends on car size</p>
+                        <p class="card-text">Duration: 1.5 hr</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Teflon</h5>
+                        <p class="card-text">Price: Depends on car size</p>
+                        <p class="card-text">Duration: 1.5 hr</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Interior Deep Cleaning</h5>
+                        <p class="card-text">Price: Depends on car size</p>
+                        <p class="card-text">Duration: 1.5 hr</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-white bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Ceramic</h5>
+                        <p class="card-text">Price: Contact for more details</p>
+                        <p class="card-text">Duration: 3 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
