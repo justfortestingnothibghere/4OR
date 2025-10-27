@@ -23,11 +23,12 @@ login_manager.login_view = 'admin_login'
 # Database path
 DB_PATH = 'database/data.db'
 
-# SMTP Configuration (e.g., for Gmail)
+# SMTP Configuration
 SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
 SMTP_PORT = int(os.getenv('SMTP_PORT', 587))
-SMTP_USERNAME = os.getenv('armanhacker900@gmail.com')  # e.g., your email address
-SMTP_PASSWORD = os.getenv('mmge jjmr clrk dqnb')  # e.g., your email password or app-specific password
+SMTP_USERNAME = os.getenv('armanhacker900@gmail.com')
+SMTP_PASSWORD = os.getenv('mmge jjmr clrk dqnb')
+ADMIN_EMAIL = 'khusi9999khan@gmail.com'
 
 # User class for Flask-Login
 class User(UserMixin):
@@ -44,19 +45,12 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-# Routes
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/services')
-def services():
-    return render_template('services.html')
-
+# Updated /booking route
 @app.route('/booking', methods=['GET', 'POST'])
 def booking():
     if request.method == 'POST':
         name = request.form['name']
+        email = request.form['email']
         phone = request.form['phone']
         car_model = request.form['car_model']
         service_type = request.form['service_type']
@@ -89,9 +83,9 @@ def booking():
         conn = get_db()
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO bookings (booking_id, name, phone, car_model, service_type, date, time, car_size, location, promo_code, discount, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        ''', (booking_id, name, phone, car_model, service_type, date, time, car_size, location, promo_code, discount, 'Booked'))
+            INSERT INTO bookings (booking_id, name, email, phone, car_model, service_type, date, time, car_size, location, promo_code, discount, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (booking_id, name, email, phone, car_model, service_type, date, time, car_size, location, promo_code, discount, 'Booked'))
         conn.commit()
 
         # Update loyalty points
@@ -102,17 +96,20 @@ def booking():
         conn.commit()
         conn.close()
 
-        # Send confirmation email via SMTP
+        # Send confirmation email to customer and admin notification
         if SMTP_USERNAME and SMTP_PASSWORD:
             try:
-                # Create email
-                msg = MIMEMultipart()
-                msg['From'] = SMTP_USERNAME
-                msg['To'] = phone + 'armanhacker900@gmail.com'  # Replace with actual email in production
-                msg['Subject'] = 'TEAM 4OR Booking Confirmation'
+                # Connect to SMTP server
+                server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+                server.starttls()  # Enable TLS
+                server.login(SMTP_USERNAME, SMTP_PASSWORD)
 
-                # Email body
-                body = f'''
+                # Customer confirmation email
+                customer_msg = MIMEMultipart()
+                customer_msg['From'] = SMTP_USERNAME
+                customer_msg['To'] = email
+                customer_msg['Subject'] = 'TEAM 4OR Booking Confirmation'
+                customer_body = f'''
                     <h2>Booking Confirmed!</h2>
                     <p>Dear {name},</p>
                     <p>Your booking has been confirmed with the following details:</p>
@@ -127,13 +124,37 @@ def booking():
                     </p>
                     <p>Thank you for choosing TEAM 4OR!</p>
                 '''
-                msg.attach(MIMEText(body, 'html'))
+                customer_msg.attach(MIMEText(customer_body, 'html'))
+                server.sendmail(SMTP_USERNAME, email, customer_msg.as_string())
 
-                # Connect to SMTP server
-                server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-                server.starttls()  # Enable TLS
-                server.login(SMTP_USERNAME, SMTP_PASSWORD)
-                server.sendmail(SMTP_USERNAME, msg['To'], msg.as_string())
+                # Admin notification email
+                admin_msg = MIMEMultipart()
+                admin_msg['From'] = SMTP_USERNAME
+                admin_msg['To'] = ADMIN_EMAIL
+                admin_msg['Subject'] = 'New Booking Received - TEAM 4OR'
+                admin_body = f'''
+                    <h2>New Booking Notification</h2>
+                    <p>A new booking has been received with the following details:</p>
+                    <ul>
+                        <li><strong>Booking ID:</strong> {booking_id}</li>
+                        <li><strong>Customer Name:</strong> {name}</li>
+                        <li><strong>Email:</strong> {email}</li>
+                        <li><strong>Phone:</strong> {phone}</li>
+                        <li><strong>Car Model:</strong> {car_model}</li>
+                        <li><strong>Service:</strong> {service_type}</li>
+                        <li><strong>Date:</strong> {date}</li>
+                        <li><strong>Time:</strong> {time}</li>
+                        <li><strong>Car Size:</strong> {car_size}</li>
+                        <li><strong>Location:</strong> {location}</li>
+                        <li><strong>Promo Code:</strong> {promo_code or 'None'}</li>
+                        <li><strong>Discount:</strong> ₹{discount}</li>
+                    </ul>
+                    <p>Please review the booking in the admin dashboard.</p>
+                '''
+                admin_msg.attach(MIMEText(admin_body, 'html'))
+                server.sendmail(SMTP_USERNAME, ADMIN_EMAIL, admin_msg.as_string())
+
+                # Close SMTP connection
                 server.quit()
 
             except Exception as e:
@@ -144,6 +165,7 @@ def booking():
         return redirect(url_for('track', booking_id=booking_id))
     
     return render_template('booking.html')
+
 
 @app.route('/track', methods=['GET', 'POST'])
 def track():
