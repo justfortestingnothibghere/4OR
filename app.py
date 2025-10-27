@@ -26,8 +26,8 @@ DB_PATH = 'database/data.db'
 # SMTP Configuration
 SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
 SMTP_PORT = int(os.getenv('SMTP_PORT', 587))
-SMTP_USERNAME = os.getenv('armanhacker900@gmail.com')
-SMTP_PASSWORD = os.getenv('mmge jjmr clrk dqnb')
+SMTP_USERNAME = os.getenv('SMTP_USERNAME')
+SMTP_PASSWORD = os.getenv('SMTP_PASSWORD')
 ADMIN_EMAIL = 'khusi9999khan@gmail.com'
 
 # User class for Flask-Login
