@@ -149,8 +149,8 @@ def promotions():
 def reviews():
     return render_template('reviews.html')
 
-@app.route('/term')
-def term():
+@app.route('/terms')
+def terms():
     return render_template('term.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
