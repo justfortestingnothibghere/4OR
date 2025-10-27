@@ -4,3 +4,4 @@ python-dateutil
 gunicorn
 python-dotenv
 sendgrid
+bcrypt
