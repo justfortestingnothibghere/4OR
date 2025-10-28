@@ -33,7 +33,7 @@ login_manager.login_view = 'admin_login'
 DB_PATH = os.getenv('DB_PATH', 'database/data.db')
 
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')  # Put this in Render environment variables
-FROM_EMAIL = os.getenv('FROM_EMAIL', 'armanhacker900@gmail.com')  # Verified sender in SendGrid
+FROM_EMAIL = os.getenv('FROM_EMAIL', 'khusi9999khan@gmail.com')  # Verified sender in SendGrid
 ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'khusi9999khan@gmail.com')
 
 # ---------- Simple User class ----------
